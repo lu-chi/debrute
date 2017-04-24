@@ -48,7 +48,7 @@ if __name__ == '__main__':
 	parser.add_argument('-d', '--domain', required=True)
 	parser.add_argument('-r', '--record', help='Domain record to find. \
 						Available options: A, AAAA, NS, PTR, MX, SRV, TXT, SOA, SPF. \
-						If no argument given - print all fo them.')
+						If no argument given - print all of them.')
 	parser.add_argument('--min', default=3, required=False, help='Minimal string length.')
 	parser.add_argument('--max', default=3, required=False, help='Maximal string length.')
 	parser.add_argument('-p', '--print', required=False, help='Print only found records.') 	

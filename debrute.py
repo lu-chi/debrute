@@ -14,6 +14,7 @@ def bruteforce(charset, minlength, maxlength):
 def main(args):
 	charset = 'abcdefghijklmnopqrstuvwxyz'
 	records = {'a':'A', 'aaaa':'AAAA', 'ns':'NS', 'ptr':'PTR', 'mx':'MX', 'srv':'SRV', 'txt':'TXT', 'soa':'SOA', 'spf':'SPF'}
+	# tlds = ()
 	domain, tld = args.domain.split(".")
 
 	myResolver = dns.resolver.Resolver() 
@@ -49,8 +50,9 @@ if __name__ == '__main__':
 	parser.add_argument('-r', '--record', help='Domain record to find. \
 						Available options: A, AAAA, NS, PTR, MX, SRV, TXT, SOA, SPF. \
 						If no argument given - print all of them.')
-	parser.add_argument('--min', default=3, required=False, help='Minimal string length.')
-	parser.add_argument('--max', default=3, required=False, help='Maximal string length.')
+	parser.add_argument('--min', default=0, required=False, help='Minimal string length.')
+	parser.add_argument('--max', default=0, required=False, help='Maximal string length.')
+	parser.add_argument('-t', '--tld', required=False, help='Top Level Domain. Available options - all, known, selected')
 	parser.add_argument('-p', '--print', required=False, help='Print only found records.') 	
 	parser.add_argument('-f', '--file', required=False, help='Save output to a file.')
 	args = parser.parse_args()
